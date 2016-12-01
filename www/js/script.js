@@ -251,6 +251,8 @@ function chat_thread(ayudante,solicitud,solicitante,lat,lon){
 				
 			}	
 		});
+		
+	
 /*	if(error == 1){
 		return false;
 	}else{
@@ -324,5 +326,38 @@ function envia_msg(){
             alert("Se ha producido un error: Code = " + error.code);
         }
 
+function actualizarPreferencias() {
+         var cbx = "";
+         $("input:checkbox:checked").each(   
+    		function() {
+    		cbx = cbx + $(this).val() + ",";
+    		}
+		);
+         cbx = cbx.substr(0,cbx.length-1);
+         guardarPreferencias(cbx);
+        }
+ 
+        
+       function guardarPreferencias(cBox){
+  			var dataString="cBox="+cBox;
 
+			$.ajax({
+				url: "http://concienciati.com/php/guardarPreferencias.php",
+				type: "POST",
+				crossDomain: true,
+				cache: false,
+				data:dataString,
+				success: function(data){
+						jQuery("#preferencesHapp").empty();
+						jQuery("#preferencesHapp").append(data);
+						
+					}
+				}); 
+		 	document.getElementById("sAyuda").style.display = "none";
+		 	document.getElementById("pAyuda").style.display = "none";
+			document.getElementById("doneAyuda").style.display = "none";
+			document.getElementById("preferencias").style.display = "block";
+			jQuery("#listviewHapp").empty();
+   
+		}
 

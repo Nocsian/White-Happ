@@ -64,7 +64,7 @@ function goacceso(){
 					alert("El usuario ingresado no ha sido registrado")
 				}
 			 }
-			 }); 
+			 });   
 		}else{
 			alert("Error Cod.405");
 		}

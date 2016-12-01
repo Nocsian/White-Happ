@@ -30,7 +30,8 @@
 
 					<!-- Logo -->
 						<div id="logo">
-							<span class="perfil avatar-perfil" onclick="getImage();"><img id="avatar" src="http://www.concienciati.com/php/upload/11.jpg" alt=""/></span>
+							<span class="image avatar48" onclick="getImage();"><img id="avatar" src="http://www.concienciati.com/php/upload/11.jpg" alt=""/></span>
+							<!--<span class="image avatar48" onclick="getImage();"><img id="avatar" src="http://www.concienciati.com/php/upload/11.jpg" alt=""/></span>-->
 							<h1 id="title"></h1>
 							<p id="title-info"></p>
 						</div>
@@ -103,8 +104,7 @@
 									<br/><br/><br/>
 									<div id="btn" style="text-align:center;"><button id="btn1" onclick="clickGPS();" style="margin:auto;"><h2>Enviar</h2></button></div>
 									<div id="cargando" style="display:none;"><h2>Cargando...</h2></div>
-							</div>	
-							 
+							</div>														 
 						</section>
 						<section id="doneAyuda" class="doneAyuda" style="display:none;">
 						
@@ -115,7 +115,7 @@
 						
 						<section id="pAyuda">
 							<h3>Solicitudes de Ayuda</h4>
-							<section id="listviewHapp" class="listviewHapp"> </section>	
+							<section id="listviewHapp" class="listviewHapp"> </section>													
 							
 						</section>						
 						
@@ -132,7 +132,7 @@
 									<!-- <h4>Subcategorias de usuario</h4>
 									<hr/>
 										<div class="checkbox">
-										  <input id="check1_subcat" type="checkbox" name="check1_subcat" value="1" disabled/>
+							  	 	  <input id="check1_subcat" type="checkbox" name="check1_subcat" value="1" disabled/>
 										  <label for="check1_subcat" class="disabled">Materiales</label>
 										  <br>
 										  <input id="check2_subcat" type="checkbox" name="check2_subcat" value="2" disabled/>
@@ -144,13 +144,26 @@
 									-->
 									<br/>
 								</div>									
-
-							</div>
+  
+							</div>   
+						</section>
+						
+						<section id="chat" class="chat" style="display:none;"> 
+								<div id="wrapper">	
+									<div id="mapa"></div>
+									<div id="chatbox"></div>									 
+										<form name="message" action="">
+											<input name="usermsg" type="text" id="usermsg" size="63" /><br/>
+											<input name="submitmsg" type="button"  id="submitmsg" value="Enviar" onclick='envia_msg();'/>
+											<input type="hidden"  id="solicitud_hid" value="" />
+											  
+										</form>
+								</div>
 						</section>
 						
 					<section>
 
-			</div>
+			</div> 
 			
 
 		<!-- Scripts -->

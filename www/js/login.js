@@ -58,7 +58,7 @@ function goacceso(){
 					window.location.href="home.html";
 				}
 				else if(data[0]=='success2'){	
-					window.location.href="home-admin.html";
+					window.location.href="http://concienciati.com/dashboard/index.php";
 				}				
 				else if(data[0]=='error'){	
 					alert("El usuario ingresado no ha sido registrado")

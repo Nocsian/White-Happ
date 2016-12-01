@@ -38,12 +38,16 @@ $( document ).ready(function() {
 
 
 function menuOp(op){
-
+	document.getElementById("chat").style.display = "none";	
+	jQuery("#chatbox").empty(); 
   if (op == 1) {
+	 
   	document.getElementById("sAyuda").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
+	document.getElementById("chat").style.display = "none";
+	document.getElementById("dashboard_sec").style.display = "block";
 	jQuery("#listviewHapp").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
@@ -54,11 +58,15 @@ function menuOp(op){
   	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
+	document.getElementById("dashboard_sec").style.display = "none";
+	document.getElementById("chat").style.display = "none";
+	
 	jQuery("#listviewHapp").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
   }  
   if (op == 3) {
+	  jQuery("#listviewHapp").empty();
 	  $.ajax({
 		url: "http://concienciati.com/php/prestarAyuda.php",
 		type: "POST",
@@ -76,10 +84,12 @@ function menuOp(op){
   	document.getElementById("pAyuda").style.display = "block";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
+	document.getElementById("dashboard_sec").style.display = "none";
+	
 	jQuery("#preferencesHapp").empty();
-	jQuery("#chatbox").empty();
   }
     if (op == 4) {
+	jQuery("#preferencesHapp").empty();
 	$.ajax({
 		url: "http://concienciati.com/php/preferencias.php",
 		type: "POST",
@@ -98,8 +108,10 @@ function menuOp(op){
   	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "block";
+	document.getElementById("dashboard_sec").style.display = "none";
+	document.getElementById("chat").style.display = "none";
 	jQuery("#listviewHapp").empty();
-	jQuery("#chatbox").empty();
+	
   }
    if (op == 5) {
 	   jQuery("#chatbox").empty();
@@ -216,6 +228,7 @@ function chat_thread(ayudante,solicitud,solicitante,lat,lon){
 	$("#solicitud_hid").val(solicitud);
 	
 	document.getElementById("pAyuda").style.display = "none";
+	jQuery("#chatbox").empty();
 	document.getElementById("chat").style.display = "block";
 	jQuery("#listviewHapp").empty();
 	

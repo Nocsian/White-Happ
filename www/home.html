@@ -53,7 +53,9 @@
 							-->
 							<ul>
 								<li><a href="javascript:menuOp(2)" class="skel-layers-ignoreHref"><span class="icon fa-user">Solicitar Ayuda</span></a></li>
+								<li><a href="javascript:menuOp(6)" class="skel-layers-ignoreHref"><span class="icon fa-user">Mis Solicitudes</span></a></li>
 								<li><a href="javascript:menuOp(3)" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Prestar Ayuda</span></a></li>
+								<li><a href="javascript:menuOp(7)" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Mis Ayudas</span></a></li>
 								<li><a href="javascript:menuOp(4)" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Preferencias</span></a></li>								
 								<li><a href="javascript:menuOp(5)" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-envelope">Cerrar</span></a></li>								
 							</ul>
@@ -112,6 +114,11 @@
 							
 						</section>						
 						
+						<section id="msolicitud" style="display:none;">
+							<h3>Mis solicitudes de ayuda</h4> 
+							<section id="listmyHapp" class="listviewHapp"> </section>													
+							
+						</section>
 						
 						<section id="pAyuda">
 							<h3>Solicitudes de Ayuda</h4>
@@ -147,18 +154,27 @@
   
 							</div>   
 						</section>
-						
+						 
 						<section id="chat" class="chat" style="display:none;"> 
-								<div id="wrapper">	
-									<div id="mapa"></div>
-									<div id="chatbox"></div>									 
-										
-											<input name="usermsg" type="text" id="usermsg" size="63" /><br/>
-											<input name="submitmsg" type="button"  id="submitmsg" value="Enviar" onclick='envia_msg();' style='margin-top:4px;'/>
-											<input type="hidden"  id="solicitud_hid" value="" />
+						
+							<div id="wrapper">												
+									<div id="chatbox"></div>									 																					  										
+							</div>
+							<input name="usermsg" type="text" id="usermsg" size="63" /><br/>
+							<input name="submitmsg" type="button"  id="submitmsg" value="Enviar" onclick='envia_msg();' style='margin-top:4px;'/>
+							<input type="hidden"  id="solicitud_hid" value="" />
 											  
-										
-								</div>
+						</section>
+						
+						<section id="ap_enc" class="ap_enc" style="display:none;"> 
+								
+							<iframe src="http://www.concienciati.com/dashboard/dashboard.php" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" id="activityFrame" style="width:100%; height:100%;" frameborder="0"></iframe>	
+							<section id="chatprivado"></section>
+							<input name="usermsg2" type="text" id="usermsg2" size="63" /><br/>
+							<input name="submitmsg2" type="button"  id="submitmsg2" value="Enviar" onclick='envia_msg_privado();' style='margin-top:4px;'/>
+							<input type="hidden"  id="solicitud_hid2" value="" />
+							<input type="hidden"  id="ayudante_priv" value="" />
+							
 						</section>
 						
 					<section>

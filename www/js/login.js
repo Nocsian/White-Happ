@@ -6,7 +6,7 @@ $(document).ready(function(){
     }).blur(function(){
         this.type = "password";
     })   
-});
+}); 
 
 //Placeholder fixed for Internet Explorer
 $(function() {

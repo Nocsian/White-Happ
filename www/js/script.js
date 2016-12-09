@@ -39,22 +39,32 @@ $( document ).ready(function() {
 
 function menuOp(op){
 	document.getElementById("chat").style.display = "none";	
+	document.getElementById("ap_enc").style.display = "none";	
 	jQuery("#chatbox").empty(); 
-  if (op == 1) {
+	jQuery("#chatprivado").empty();
+	
+	if (op == 1) {
 	 
   	document.getElementById("sAyuda").style.display = "none";
+  	document.getElementById("msolicitud").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
 	document.getElementById("chat").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "block";
+	
 	jQuery("#listviewHapp").empty();
+	jQuery("#listmyHapp").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
-  }
-  if (op == 2) {
+	
+	}
+  
+	if (op == 2) {
+	  
   	document.getElementById("sAyuda").style.display = "block";
 	document.getElementById("btn1").style.display = "block";
+	document.getElementById("msolicitud").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
@@ -62,11 +72,44 @@ function menuOp(op){
 	document.getElementById("chat").style.display = "none";
 	
 	jQuery("#listviewHapp").empty();
+	jQuery("#listmyHapp").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
-  }  
-  if (op == 3) {
-	  jQuery("#listviewHapp").empty();
+	
+	}  
+  
+	if (op == 6) {
+		
+	jQuery("#listmyHapp").empty();
+	
+		$.ajax({
+		url: "http://concienciati.com/php/misSolicitudes.php",
+		type: "POST",
+		crossDomain: true,
+		cache: false,
+		data:{ 
+			accion:"listar_solicitudes"
+		},
+		success: function(data){
+				jQuery("#listmyHapp").append(data);
+				document.getElementById("msolicitud").style.display = "block";
+			}	
+		}); 
+	document.getElementById("sAyuda").style.display = "none";
+  	document.getElementById("pAyuda").style.display = "none";
+	document.getElementById("doneAyuda").style.display = "none";
+	document.getElementById("preferencias").style.display = "none";
+	document.getElementById("dashboard_sec").style.display = "none";
+	
+	jQuery("#listviewHapp").empty();
+	jQuery("#preferencesHapp").empty();
+	jQuery("#chatbox").empty();
+	
+	}
+   
+	if (op == 3) {
+	  
+	jQuery("#listmyHapp").empty();
 	  $.ajax({
 		url: "http://concienciati.com/php/prestarAyuda.php",
 		type: "POST",
@@ -77,18 +120,23 @@ function menuOp(op){
 		},
 		success: function(data){
 				jQuery("#listviewHapp").append(data);
-				
+				document.getElementById("pAyuda").style.display = "block";
 			}	
 		});
-  	document.getElementById("sAyuda").style.display = "none";
-  	document.getElementById("pAyuda").style.display = "block";
+  	document.getElementById("sAyuda").style.display = "none"; 
+	document.getElementById("msolicitud").style.display = "none";	
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "none";
 	
+	jQuery("#listmyHapp").empty();
 	jQuery("#preferencesHapp").empty();
-  }
+	jQuery("#chatbox").empty();
+	    
+	}
+  
     if (op == 4) {
+		
 	jQuery("#preferencesHapp").empty();
 	$.ajax({
 		url: "http://concienciati.com/php/preferencias.php",
@@ -101,25 +149,31 @@ function menuOp(op){
 		},
 		success: function(data){
 				jQuery("#preferencesHapp").append(data);
-				
+					document.getElementById("preferencias").style.display = "block";
 			}
 		});
   	document.getElementById("sAyuda").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
-	document.getElementById("preferencias").style.display = "block";
 	document.getElementById("dashboard_sec").style.display = "none";
 	document.getElementById("chat").style.display = "none";
+
 	jQuery("#listviewHapp").empty();
+	jQuery("#listmyHapp").empty();
+	jQuery("#preferencesHapp").empty();
+	jQuery("#chatbox").empty();
 	
   }
-   if (op == 5) {
-	   jQuery("#chatbox").empty();
-	   jQuery("#preferencesHapp").empty();
-	   jQuery("#listviewHapp").empty();
-		window.location.href="index.html";
-  }
-}
+  
+	if (op == 5) {
+	jQuery("#listviewHapp").empty();
+	jQuery("#listmyHapp").empty();
+	jQuery("#preferencesHapp").empty();
+	jQuery("#chatbox").empty();
+	
+	window.location.href="index.html";
+	}
+}  
 
 
 
@@ -216,49 +270,164 @@ function listar(){
 */
 	  
 }
-function chat_thread(ayudante,solicitud,solicitante,lat,lon){
-	//alert('id ayudante:'+ayudante+' - id solicitud:'+solicitud+' - id solicitante:'+solicitante+' - latitud:'+lat+' - longitud:'+lon);
-	  
-	var ayudante = ayudante;
-	var solicitud = solicitud;
-	var solicitante = solicitante;
-	var lat = lat;
-	var lon = lon;
-	
-	$("#solicitud_hid").val(solicitud);
-	
-	document.getElementById("pAyuda").style.display = "none";
-	jQuery("#chatbox").empty();
-	document.getElementById("chat").style.display = "block";
-	jQuery("#listviewHapp").empty();
-	
-	$.ajax({
-		url: "http://concienciati.com/php/chat.php",
+
+/*
+function valida_estado_solicitud(solic){
+	$("#asignada").val(0);
+		$.ajax({
+		url: "http://concienciati.com/php/chatprivado.php",
 		type: "POST",
 		crossDomain: true,
 		cache: false,
 		data:{ 
-			accion:"listar_chat",
-			ayudante:ayudante,
-			solicitud:solicitud,
-			solicitante:solicitante,
-			lat:lat,
-			lon:lon
+			accion:"valida_asignacion",
+			solicitud:solic
 		},
 		success: function(data){
 				
-				jQuery("#chatbox").append(data);
+				if(data == 0){
+					dato=0;
+				}
+				else{
+					dato=1;
+				}	
 				
+				 
 			}	
 		});
-/*	if(error == 1){
-		return false;
-	}else{
+	if(dato == 1){
+		alert(1);
+		$("#asignada").val(1);
 		return true;
-	} */   
+		}
+	else{
+		alert(2);
+		$("#asignada").val(0);
+		return false;		
+		}
 	
+	
+}*/
+
+function chat_thread(ayudante,solicitud,solicitante,lat,lon){
+	//alert('id ayudante:'+ayudante+' - id solicitud:'+solicitud+' - id solicitante:'+solicitante+' - latitud:'+lat+' - longitud:'+lon);	
+		var ayudante = ayudante;
+		var solicitud = solicitud;
+		var solicitante = solicitante;
+		var lat = lat;
+		var lon = lon;
+		
+		$("#solicitud_hid").val(solicitud);
+		
+		document.getElementById("pAyuda").style.display = "none";
+		document.getElementById("msolicitud").style.display = "none";
+		jQuery("#chatbox").empty();
+		document.getElementById("chat").style.display = "block";
+		jQuery("#listviewHapp").empty();
+		jQuery("#listmyHapp").empty();
+		
+		$.ajax({
+			url: "http://concienciati.com/php/chat.php",
+			type: "POST",
+			crossDomain: true,
+			cache: false,
+			data:{ 
+				accion:"listar_chat",
+				ayudante:ayudante,
+				solicitud:solicitud,
+				solicitante:solicitante,
+				lat:lat,
+				lon:lon
+			},
+			success: function(data){
+					
+					jQuery("#chatbox").append(data);
+					
+				}	
+			}); 
+			
+		
+		/*	if(error == 1){ 
+			return false;
+		}else{
+			return true;
+		} */   
 	
 }
+
+function chat_thread_2(ayudante,solicitud,solicitante,lat,lon,estado){
+	//alert('id ayudante:'+ayudante+' - id solicitud:'+solicitud+' - id solicitante:'+solicitante+' - latitud:'+lat+' - longitud:'+lon);
+	
+		var ayudante = ayudante;
+		var solicitud = solicitud;
+		var solicitante = solicitante;
+		var lat = lat;
+		var lon = lon;
+		
+		$("#solicitud_hid").val(solicitud);
+		
+		document.getElementById("pAyuda").style.display = "none";
+		document.getElementById("msolicitud").style.display = "none";
+		jQuery("#chatbox").empty();
+		document.getElementById("chat").style.display = "block";
+		jQuery("#listviewHapp").empty();
+		jQuery("#listmyHapp").empty();
+		
+		if(estado!=2){
+			$.ajax({
+				url: "http://concienciati.com/php/chat.php",
+				type: "POST",
+				crossDomain: true,
+				cache: false,
+				data:{ 
+					accion:"listar_chat",
+					ayudante:ayudante,
+					solicitud:solicitud,
+					solicitante:solicitante,
+					lat:lat,
+					lon:lon
+				},
+				success: function(data){
+						
+						jQuery("#chatbox").append(data);
+						
+					}	
+				}); 
+		}
+		else{
+			jQuery("#chatbox").empty();
+			$.ajax({
+				url: "http://concienciati.com/php/chatprivado.php",
+				type: "POST",
+				crossDomain: true,
+				cache: false,
+				data:{ 
+					accion:"volver_chatprivado",
+					solicitud:solicitud
+				},
+				success: function(data){
+						
+						jQuery("#chatprivado").append(data);
+						
+					}	
+				});
+			
+			
+			
+			document.getElementById("chat").style.display = "none";
+			alert('su solicitud se encuentra asignada a un usuario');
+			document.getElementById("ap_enc").style.display = "block";
+		}
+		
+		/*	if(error == 1){ 
+			return false;
+		}else{
+			return true;
+		} */   
+	
+}
+
+
 function envia_msg(){
 	solicitud	= $("#solicitud_hid").val();
 	msg			= $("#usermsg").val();
@@ -280,6 +449,65 @@ function envia_msg(){
 			}	
 		}); 
 }
+
+
+
+
+
+function asigna_ayudante(solicitud,ayudante){
+	
+	alert(ayudante+" será asignado para brindarle ayuda");
+	jQuery("#chatbox").empty();
+	jQuery("#chatprivado").empty();
+	document.getElementById("chat").style.display = "none";
+	
+	$("#solicitud_hid2").val(solicitud);
+	$("#ayudante_priv").val(ayudante);
+	
+	$.ajax({
+		url: "http://concienciati.com/php/chatprivado.php",
+		type: "POST",
+		crossDomain: true,
+		cache: false,
+		data:{ 
+			accion:"asignar_ayudante",
+			solicitud:solicitud,
+			ayudante:ayudante
+		},
+		success: function(data){
+				
+				jQuery("#chatprivado").append(data);
+				
+			}	
+		});
+	
+	document.getElementById("ap_enc").style.display = "block";
+	
+}
+
+function envia_msg_privado(){
+	ayudante	= $("#ayudante_priv").val();
+	solicitud	= $("#solicitud_hid2").val();
+	msg			= $("#usermsg2").val();
+	
+		$.ajax({
+		url: "http://concienciati.com/php/chatprivado.php",
+		type: "POST",
+		crossDomain: true,
+		cache: false,
+		data:{ 
+			accion:"msg_chat",
+			ayudante:ayudante,
+			solicitud:solicitud,
+			msg:msg
+		},
+		success: function(data){
+				jQuery("#chatprivado").empty();
+				jQuery("#chatprivado").append(data);
+				
+			}	
+		}); 
+} 
 
 
 
@@ -324,5 +552,39 @@ function envia_msg(){
             alert("Se ha producido un error: Code = " + error.code);
         }
 
+function actualizarPreferencias() {
+         var cbx = "";
+         $("input:checkbox:checked").each(   
+    		function() {
+    		cbx = cbx + $(this).val() + ",";
+    		}
+		);
+         cbx = cbx.substr(0,cbx.length-1);
+         guardarPreferencias(cbx);
+        }
+     
+         
+function guardarPreferencias(cBox){
+  			var dataString="cBox="+cBox;
+   
+			$.ajax({
+				url: "http://concienciati.com/php/guardarPreferencias.php",
+				type: "POST",
+				crossDomain: true,
+				cache: false,
+				data:dataString,
+				success: function(data){
+						jQuery("#preferencesHapp").empty();
+						jQuery("#preferencesHapp").append(data);
+						
+					}
+				}); 
+		 	document.getElementById("sAyuda").style.display = "none";
+		 	document.getElementById("pAyuda").style.display = "none";
+			document.getElementById("doneAyuda").style.display = "none";
+			document.getElementById("preferencias").style.display = "block";
+			jQuery("#listviewHapp").empty();
+   
+		}
 
 

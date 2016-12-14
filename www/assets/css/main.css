@@ -2628,8 +2628,8 @@
 		margin:1px 0px 0px 0px;
 	}
 	section.blue-color{
-		background:#FFFFFF; 
-		color:#212528;
+		background:red;  
+		color:#FFFFFF;
 	    font-size:11px;
 		font-weight:350;
 		line-height:1.8em;
@@ -2638,7 +2638,7 @@
 	}
 	.check1_subcat, .check2_subcat, .check3_subcat{
 		background-color:gray;
-	}
+	}   
 	
 
 #mapa{
@@ -2670,8 +2670,36 @@
  font-size:9px;
  color:#FFFFFF;
 }
-
-	
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+} 
+								#dialog-link {
+									padding: .4em 1em .4em 20px;
+									text-decoration: none;
+									position: relative;
+								}
+								#dialog-link span.ui-icon {
+									margin: 0 5px 0 0;
+									position: absolute;
+									left: .2em;
+									top: 50%;
+									margin-top: -8px;
+								}
+								
+								.label-califica{label{ color:grey;}}
+								.label-califica:hover{color:orange;}
+								.label-califica:hover ~ .label-califica{color:orange;}
+								#radio1,#radio2,#radio3,#radio4,#radio5{display:none;}
+								.clasificacion{
+									  direction: rtl;/* right to left */
+									  unicode-bidi: bidi-override;/* bidi de bidireccional */
+								  }
+								 #radio1:checked ~ .label-califica{color:orange;}
+								 #radio2:checked ~ .label-califica{color:orange;}
+								 #radio3:checked ~ .label-califica{color:orange;}
+								 #radio4:checked ~ .label-califica{color:orange;}
+								 #radio5:checked ~ .label-califica{color:orange;}
+	 
 	.disabled{color:gray;}
 	.left{text-align:left;}
 	.inibox{height:700px;}

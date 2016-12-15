@@ -93,6 +93,7 @@ function menuOp(op){
   	document.getElementById("sAyuda").style.display = "none";
   	document.getElementById("msolicitud").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
+	document.getElementById("mayudas").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
 	document.getElementById("chat").style.display = "none";
@@ -100,6 +101,7 @@ function menuOp(op){
 	
 	jQuery("#listviewHapp").empty();
 	jQuery("#listmyHapp").empty();
+	jQuery("#listmyHapp2").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
 	
@@ -111,6 +113,7 @@ function menuOp(op){
 	document.getElementById("btn1").style.display = "block";
 	document.getElementById("msolicitud").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
+	document.getElementById("mayudas").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "none";
@@ -118,6 +121,7 @@ function menuOp(op){
 	
 	jQuery("#listviewHapp").empty();
 	jQuery("#listmyHapp").empty();
+	jQuery("#listmyHapp2").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
 	
@@ -142,13 +146,14 @@ function menuOp(op){
 		}); 
 	document.getElementById("sAyuda").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
+	document.getElementById("mayudas").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "none";
 	document.getElementById("mayudas").style.display = "none";
 	
 	jQuery("#listviewHapp").empty();
-	jQuery("#listmyHapp2").append(data);
+	jQuery("#listmyHapp2").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
 	
@@ -171,18 +176,20 @@ function menuOp(op){
 			}	
 		});
   	document.getElementById("sAyuda").style.display = "none"; 
+	document.getElementById("mayudas").style.display = "none";
 	document.getElementById("msolicitud").style.display = "none";	
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "none";
 	
 	jQuery("#listmyHapp").empty();
+	jQuery("#listmyHapp2").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
 	    
 	}
 	if (op == 7) {
-		
+	document.getElementById("msolicitud").style.display = "none";
 	jQuery("#listmyHapp2").empty();
 	
 		$.ajax({
@@ -203,7 +210,7 @@ function menuOp(op){
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "none";
-	
+
 	jQuery("#listmyHapp").empty();
 	jQuery("#listviewHapp").empty();
 	jQuery("#preferencesHapp").empty();
@@ -229,12 +236,14 @@ function menuOp(op){
 		});
   	document.getElementById("sAyuda").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
+	document.getElementById("mayudas").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "none";
 	document.getElementById("chat").style.display = "none";
 
 	jQuery("#listviewHapp").empty();
 	jQuery("#listmyHapp").empty();
+	jQuery("#listmyHapp2").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
 	
@@ -243,6 +252,7 @@ function menuOp(op){
 	if (op == 5) {
 	jQuery("#listviewHapp").empty();
 	jQuery("#listmyHapp").empty();
+	jQuery("#listmyHapp2").empty();
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
 	
@@ -400,7 +410,7 @@ function chat_thread(ayudante,solicitud,solicitante,lat,lon){
 		document.getElementById("chat").style.display = "block";
 		jQuery("#listviewHapp").empty();
 		jQuery("#listmyHapp").empty();
-		
+		   
 		$.ajax({
 			url: "http://concienciati.com/php/chat.php",
 			type: "POST",
@@ -468,7 +478,7 @@ function chat_thread_2(ayudante,solicitud,solicitante,lat,lon,estado){
 						jQuery("#chatbox").append(data);
 						
 					}	
-				}); 
+				});   
 		}
 		else{  
 			jQuery("#chatbox").empty();

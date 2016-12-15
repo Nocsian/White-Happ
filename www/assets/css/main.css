@@ -2662,13 +2662,12 @@
 }
 
 #chatbox{
- background:#212528;
  color:black;
  text-align:left;
  width:100%;
  height:500px;	
  font-size:9px;
- color:#FFFFFF;
+ color:#000000;
 }
 .ui-dialog-titlebar-close {
     visibility: hidden;

@@ -107,13 +107,32 @@ function menuOp(op){
 	
 	}
   
-	if (op == 2) {
+if (op == 2) {
+		jQuery("#solAyuda").empty();
+		jQuery("#subCategoria").empty();
+		document.getElementById("tbxSolicitud").value = "";
+	$.ajax({
+		url: "http://concienciati.com/php/solicitarAyuda.php",
+		type: "POST",
+		crossDomain: true,
+		cache: false,
+		data:{ 
+			accion:"solicitar_ayuda"
+		},
+		success: function(data){
+				jQuery("#solAyuda").append(data);
+			}	
+		});
+
+	cargarSubCategorias();
+
 	  
   	document.getElementById("sAyuda").style.display = "block";
-	document.getElementById("btn1").style.display = "block";
+  	document.getElementById("btn1").style.display = "block";
+  	document.getElementById("cargando").style.display = "none";
 	document.getElementById("msolicitud").style.display = "none";
-  	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("mayudas").style.display = "none";
+  	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("preferencias").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "none";
@@ -125,7 +144,8 @@ function menuOp(op){
 	jQuery("#preferencesHapp").empty();
 	jQuery("#chatbox").empty();
 	
-	}  
+	} 
+ 
   
 	if (op == 6) {
 		
@@ -762,4 +782,22 @@ function guardarPreferencias(cBox){
    
 		}
 
+function cargarSubCategorias(){
+	var id_categoria=$("#cbxCategoria").val();
+	var dataString="categoria="+id_categoria;
+
+	$.ajax({
+		url: "http://concienciati.com/php/subCategorias.php",
+		type: "POST",
+		crossDomain: true,
+		cache: false,
+		data:dataString,
+		success: function(data){
+			jQuery("#subCategoria").empty();
+			jQuery("#subCategoria").append(data);
+						
+					}
+				}); 
+
+}
 

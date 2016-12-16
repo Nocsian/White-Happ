@@ -91,7 +91,7 @@ function goacceso(){
 			crossDomain: true,
 			cache: false,
 			success: function(data){
-				var data = data.split("/__/")
+				var data = data.split("/__/");
 				if(data[0]=='success1'){
 					window.location.href="home.html";
 				}
@@ -99,7 +99,7 @@ function goacceso(){
 					window.location.href="home-admin.html";
 				}				
 				else if(data[0]=='error'){	
-					alert("El usuario ingresado no ha sido registrado")
+					alert("El usuario ingresado no ha sido registrado");
 				}
 				else if(data[0]=='errorUP'){
 					alert("Usuario o Password incorrecto");

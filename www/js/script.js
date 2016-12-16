@@ -87,6 +87,7 @@ function menuOp(op){
 	document.getElementById("ap_enc").style.display = "none";	
 	jQuery("#chatbox").empty(); 
 	jQuery("#chatprivado").empty();
+	
 	 
 	if (op == 1) {
 	 
@@ -182,6 +183,7 @@ if (op == 2) {
 	if (op == 3) {
 	  
 	jQuery("#listmyHapp").empty();
+	jQuery("#listviewHapp").empty();
 	  $.ajax({
 		url: "http://concienciati.com/php/prestarAyuda.php",
 		type: "POST",

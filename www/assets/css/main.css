@@ -2612,10 +2612,10 @@
 		
 		/*background: url(https://cdn1.iconfinder.com/data/icons/basic-ui-elements-round/700/09_location_pin-2-512.png) no-repeat; */
 		
-	}   
+	}    
 	.nombre-perfil{width:100px;font-size:10px;position:relative;top:100px;}	
 	.logo-inacap{width:20px;height:20px;position:relative;left:295px; top:-21px}   
-	section.red{   
+	section.red{
 		background:#F6F6F6;
 		color:#212528; 
 	    font-size:11px;
@@ -2633,7 +2633,7 @@ border-radius: 5px 5px 5px 5px;
 border: 0px solid #000000;
 
 	}
-	section.green{
+	section.green{    
 		background:#84D796;
 		color:#212528;
 	    font-size:11px;
@@ -2648,7 +2648,7 @@ box-shadow: 0px 1px 3px 0px rgba(179,179,179,1);
 border-radius: 5px 5px 5px 5px;
 -moz-border-radius: 5px 5px 5px 5px;
 -webkit-border-radius: 5px 5px 5px 5px;
-border: 0px solid #000000;
+border: 0px solid #000000;  
 	}
 	section.blue-color{
 		background:red;  
@@ -2667,6 +2667,25 @@ border-radius: 5px 5px 5px 5px;
 -webkit-border-radius: 5px 5px 5px 5px;
 border: 0px solid #000000;
 	}
+section.cerrado-color{
+		background:#898989;  
+		color:#FFFFFF;
+	    font-size:11px;
+		font-weight:350;
+		line-height:1.8em;
+		height:140px;
+		width:97%;
+		margin:0px auto 5px auto;
+-webkit-box-shadow: 0px 1px 3px 0px rgba(179,179,179,1);
+-moz-box-shadow: 0px 1px 3px 0px rgba(179,179,179,1);
+box-shadow: 0px 1px 3px 0px rgba(179,179,179,1);
+border-radius: 5px 5px 5px 5px;
+-moz-border-radius: 5px 5px 5px 5px;
+-webkit-border-radius: 5px 5px 5px 5px;
+border: 0px solid #000000;
+	}
+   
+	
 	.check1_subcat, .check2_subcat, .check3_subcat{
 		background-color:gray;
 	}   
@@ -2693,6 +2712,21 @@ border: 0px solid #000000;
 }
 
 #chatbox{
+ color:black;
+ text-align:left;
+ width:100%;
+ height:500px;	
+ font-size:9px;
+ color:#000000;
+}
+#chatprivado{
+ display:inline-block;
+ vertical-align:top;
+ padding:0px 15px;
+ position:relative;
+}
+
+#chatprivado{
  color:black;
  text-align:left;
  width:100%;
@@ -2757,7 +2791,7 @@ border: 0px solid #000000;
 		-webkit-transition: background-color 0.35s ease-in-out;
 		-ms-transition: background-color 0.35s ease-in-out;
 		transition: background-color 0.35s ease-in-out;
-		}
+		} 
 	select {
 		width:280px;	
 		height: 34px;
@@ -2767,6 +2801,43 @@ border: 0px solid #000000;
 		
 	}
 	textarea {width:280px;height:200px;} 
+	
+.triangle-isosceles {
+  position:relative;
+  padding:15px;
+  margin:1em 0 3em;
+  color:#000;
+  background:#f3961c; /* default background for browsers without gradient support */
+  /* css3 */
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+  background:-moz-linear-gradient(#f9d835, #f3961c);
+  background:-o-linear-gradient(#f9d835, #f3961c);
+  background:linear-gradient(#f9d835, #f3961c);
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+.triangle-isosceles:after {
+  content:"";
+  position:absolute;
+  bottom:-15px; /* value = - border-top-width - border-bottom-width */
+  left:50px; /* controls horizontal position */
+  border-width:15px 15px 0; /* vary these values to change the angle of the vertex */
+  border-style:solid;
+  border-color:#f3961c transparent;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+.triangle-isosceles.right:after {
+  top:16px; /* controls vertical position */
+  right:-50px; /* value = - border-left-width - border-right-width */
+  bottom:auto;
+  left:auto;
+  border-width:10px 0 10px 50px;
+  border-color:transparent #f3961c;
+}	
+	
 	
 @media only screen and (max-device-width: 480px) {
 	select {

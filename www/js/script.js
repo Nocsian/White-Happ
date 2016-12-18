@@ -157,7 +157,7 @@ if (op == 2) {
 		type: "POST",
 		crossDomain: true,
 		cache: false,
-		data:{ 
+		data:{  
 			accion:"listar_solicitudes"
 		},
 		success: function(data){

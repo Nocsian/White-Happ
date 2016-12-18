@@ -103,7 +103,7 @@ function goacceso(){
 				}
 				else if(data[0]=='errorUP'){
 					alert("Usuario o Password incorrecto");
-				}
+				}     
 
 			 }
 			 });    

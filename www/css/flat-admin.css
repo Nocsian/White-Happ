@@ -4245,67 +4245,6 @@ input ::-webkit-input-placeholder {
     background-color: #095077;
     color: #FFF; }
 
-.checkbox, .radio {
-  position: relative;
-  margin-top: 10px !important;
-  margin-bottom: 15px !important; }
-  .checkbox input[type='checkbox'], .checkbox input[type='radio'], .radio input[type='checkbox'], .radio input[type='radio'] {
-    position: absolute;
-    left: 0;
-    margin-left: 0;
-    opacity: 0; }
-  .checkbox label, .radio label {
-    padding-left: 30px; }
-    .checkbox label:before, .checkbox label:after, .radio label:before, .radio label:after {
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 20px;
-      height: 20px;
-      transform: translate(0, -50%);
-      border-radius: 2px; }
-    .checkbox label:before, .radio label:before {
-      content: '';
-      border: 1px solid #c8d1d3;
-      border-bottom: 2px solid #c8d1d3; }
-    .checkbox label:after, .radio label:after {
-      content: '';
-      font-family: FontAwesome;
-      text-align: center;
-      border-radius: 2px;
-      color: #18aa4a;
-      font-size: 0.95em;
-      border: 1px solid transparent; }
-  .checkbox input:checked + label::after, .radio input:checked + label::after {
-    content: '\f00c';
-    color: #FFF;
-    background-color: #29c75f;
-    border: 1px solid #29c75f;
-    border-bottom: 2px solid #18aa4a; }
-  .checkbox.checkbox-inline, .checkbox.radio-inline, .radio.checkbox-inline, .radio.radio-inline {
-    padding-left: 0; }
-  .checkbox + .checkbox-inline, .radio + .checkbox-inline {
-    margin-top: 10px; }
-
-.radio label:before, .radio label:after {
-  border-radius: 50%;
-  border-bottom-width: 1px; }
-
-.radio label:after {
-  width: 12px;
-  height: 12px;
-  left: 10px;
-  transform: translate(-50%, -50%); }
-
-.radio input:checked + label::after {
-  content: '';
-  background-color: #29c75f;
-  border-bottom-width: 0; }
-
-.radio + .radio-inline {
-  margin-top: 10px; }
-
 .form-horizontal .checkbox, .form-horizontal .radio {
   min-height: auto;
   padding-top: 0; }

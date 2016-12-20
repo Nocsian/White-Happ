@@ -2611,22 +2611,8 @@ input[type="search"] {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.radio label,
-.checkbox label {
-  min-height: 20px;
-  padding-left: 20px;
-  margin-bottom: 0;
-  font-weight: normal;
-  cursor: pointer;
-}
-.radio input[type="radio"],
-.radio-inline input[type="radio"],
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
-  position: absolute;
-  margin-top: 4px \9;
-  margin-left: -20px;
-}
+
+
 .radio + .radio,
 .checkbox + .checkbox {
   margin-top: -5px;
@@ -2646,26 +2632,8 @@ input[type="search"] {
   margin-top: 0;
   margin-left: 10px;
 }
-input[type="radio"][disabled],
-input[type="checkbox"][disabled],
-input[type="radio"].disabled,
-input[type="checkbox"].disabled,
-fieldset[disabled] input[type="radio"],
-fieldset[disabled] input[type="checkbox"] {
-  cursor: not-allowed;
-}
-.radio-inline.disabled,
-.checkbox-inline.disabled,
-fieldset[disabled] .radio-inline,
-fieldset[disabled] .checkbox-inline {
-  cursor: not-allowed;
-}
-.radio.disabled label,
-.checkbox.disabled label,
-fieldset[disabled] .radio label,
-fieldset[disabled] .checkbox label {
-  cursor: not-allowed;
-}
+
+
 .form-control-static {
   min-height: 34px;
   padding-top: 7px;

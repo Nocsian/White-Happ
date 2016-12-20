@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/login.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+    </head>
+    <body>
+		<div class="login">
+			<h3>Ingresa email utilizado al crear la cuenta</h3>
+			</br>
+			<input style="display: block;" id="mail" name='mail' placeholder='ej: alguien@algo.com' type='text' value="sbscacer@gmail.com"/>
+			</br>
+			<div id="mensaje" style="display: none;" ></div>
+			</br>
+			<input id="btnAceptar" type="button" value="Aceptar" onclick="solicitar_mail();" style="display: block;"/>
+			<input id="btnVolver" type="button" value="Volver" onclick="volverIndex();" style="display: none;"/>
+		</div>				
+    </body>	
+	<script src="assets/js/jquery.min.js"></script>	
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollzer.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>	
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/olvPass.js"></script>
+</html>

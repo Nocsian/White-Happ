@@ -87,6 +87,7 @@ function menuOp(op){
 	document.getElementById("ap_enc").style.display = "none";	
 	jQuery("#chatbox").empty(); 
 	jQuery("#chatprivado").empty();
+
 	
 	 
 	if (op == 1) {
@@ -259,6 +260,7 @@ if (op == 2) {
   	document.getElementById("sAyuda").style.display = "none";
   	document.getElementById("pAyuda").style.display = "none";
 	document.getElementById("mayudas").style.display = "none";
+	document.getElementById("msolicitud").style.display = "none";
 	document.getElementById("doneAyuda").style.display = "none";
 	document.getElementById("dashboard_sec").style.display = "none";
 	document.getElementById("chat").style.display = "none";
@@ -331,7 +333,7 @@ function dbins_happ(){
 					document.getElementById("cbxCategoria").value = 0;
 					document.getElementById("cbxSubCategoria").value = 0;
 					document.getElementById("tbxSolicitud").value = "";					
-					
+					menuOp(6); 
 				}
 				 else if(data=='error'){	
 					alert("Se ha producido un error: Code #1PROC");
@@ -521,9 +523,9 @@ function chat_thread_2(ayudante,solicitud,solicitante,lat,lon,estado){
 							jQuery("#chatprivado").append(data);
 							$("#solicitud_hid2").val(solicitud);
 							$("#ayudante_priv").val(solicitante);
-							
+							document.getElementById("ap_enc").style.display = "block";
 						}	
-					});
+					}); 
 				
 				document.getElementById("chat").style.display = "none";
 				document.getElementById("ap_enc").style.display = "block";
@@ -587,7 +589,8 @@ function envia_msg(){
 		success: function(data){
 				jQuery("#chatbox").empty();
 				jQuery("#chatbox").append(data);
-				
+					jQuery("#usermsg").val('');
+					jQuery("#usermsg2").val('');
 			}	
 		}); 
 }
@@ -619,7 +622,12 @@ function asigna_ayudante(solicitud,ayudante){
 		success: function(data){
 				
 				jQuery("#chatprivado").append(data);
-				
+				if($("#muestra_boton").val() == 'SI'){
+					document.getElementById("dialog-link").style.display = "block";
+					}
+				else{
+					document.getElementById("dialog-link").style.display = "none";
+				}
 			}	
 		});
 	
@@ -649,7 +657,8 @@ if(ayudante == -1){
 		success: function(data){
 				jQuery("#chatprivado").empty();
 				jQuery("#chatprivado").append(data);
-				
+				jQuery("#usermsg").val('');
+				jQuery("#usermsg2").val('');
 			}	
 		}); 
 }
@@ -668,7 +677,8 @@ else{
 		success: function(data){
 				jQuery("#chatprivado").empty();
 				jQuery("#chatprivado").append(data);
-				
+				jQuery("#usermsg").val('');
+				jQuery("#usermsg2").val('');
 			}	
 		}); 	
 }		
